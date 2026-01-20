@@ -1,85 +1,160 @@
-# 🌸 Anime Queens Store 🌸
+# 🌸 Anime Queens Store – E-commerce Demo 🌸
 
-Este proyecto consiste en el desarrollo de una tienda online profesional de personajes femeninos de anime, creada con un enfoque moderno, atractivo y orientado a la experiencia del usuario. La tienda fue diseñada para simular un e-commerce real, permitiendo interactuar con productos, carrito y checkout, sin necesidad de un backend.
+Este proyecto consiste en el desarrollo de una **tienda online de muestra** inspirada en personajes femeninos de anime, creada con un enfoque moderno, atractivo y centrado en la **experiencia del usuario**.  
+La aplicación fue diseñada para **simular el funcionamiento real de un e-commerce profesional**, incluyendo productos, carrito de compras y checkout.
 
-El objetivo principal de este proyecto es brindar una experiencia de compra demo completa, mostrando la lógica de un carrito, manejo de cantidades, persistencia de datos y UX clara, ideal para portafolios profesionales o demostraciones de frontend.
+Actualmente, la lógica del carrito está implementada en **JavaScript (frontend)** debido a las limitaciones de **GitHub Pages**, que no permite ejecutar backend con Python y Flask.  
+Sin embargo, **la arquitectura y el flujo están pensados como si el proyecto contara con un backend real**, replicando el comportamiento de una tienda online en producción.
 
-La estructura y el diseño están pensados para proyectos reales de e-commerce, priorizando la experiencia del usuario, la claridad visual y la interactividad, evitando elementos innecesarios o sobrecargados.
+El objetivo principal del proyecto es **demostrar lógica de negocio, UX y estructura escalable**, ideal para **portfolios profesionales**, pruebas técnicas o demostraciones de frontend con mentalidad full stack.
 
-🎯 Enfoque del proyecto
+---
+
+## 🎯 Enfoque del proyecto
 
 Esta tienda demo está orientada a:
 
-Simular una tienda online real de figuras, posters, ropa y accesorios de personajes femeninos de anime.
+- Simular una tienda online real de:
+  - Figuras  
+  - Posters  
+  - Ropa  
+  - Accesorios de personajes femeninos de anime  
+- Mostrar la **lógica completa de un carrito de compras**
+- Manejar cantidades, totales y persistencia de datos
+- Facilitar una navegación clara, dinámica e intuitiva
+- Aplicar buenas prácticas de UX/UI en e-commerce
+- Servir como **plantilla base escalable** para un proyecto con backend real
+- Formar parte de un **portfolio profesional frontend / full stack**
 
-Mostrar lógica de carrito, cantidades y totales.
+El diseño utiliza una **estética anime dark**, con paleta de colores oscuros y toques neón, tipografías modernas y una jerarquía visual clara, adaptándose perfectamente a **móviles, tablets y escritorio**.
 
-Facilitar la navegación e interacción con productos de manera dinámica.
+---
 
-Servir como plantilla escalable y reutilizable para otros proyectos de e-commerce frontend.
+## ✨ Características principales
 
-El diseño utiliza una paleta de colores oscuros con toques neón, tipografías modernas y una correcta jerarquía visual, logrando una estética anime dark que se adapta a dispositivos móviles, tablets y escritorios.
+- Diseño moderno y atractivo enfocado en experiencia de usuario  
+- Modo oscuro por defecto, inspirado en estética anime  
+- Diseño **100% responsivo**, optimizado para:
+  - Escritorio  
+  - Tabletas  
+  - Dispositivos móviles  
+- Estructura semántica, limpia y fácil de mantener  
+- **Carrito de compras completamente funcional**:
+  - Agregar productos  
+  - Incrementar / disminuir cantidades  
+  - Eliminar productos  
+  - Cálculo de total en tiempo real  
+  - Persistencia de datos en `LocalStorage`  
+- **Checkout simulado**, con:
+  - Resumen completo del pedido  
+  - Simulación de confirmación  
+  - Opción de envío del pedido por WhatsApp  
+- Secciones bien definidas:
+  - Hero principal con CTA  
+  - Listado de productos dinámicos  
+  - Preguntas frecuentes (FAQ) interactivas  
+  - Opiniones de clientes  
+  - Formulario de contacto  
+- Interactividad completa mediante JavaScript:
+  - Lógica de carrito  
+  - Renderizado dinámico de productos  
+  - Modal de checkout  
+  - Toggles de FAQ  
+- Preparada para:
+  - Integrar imágenes reales de productos  
+  - Añadir categorías, filtros y banners promocionales  
 
-✨ Características principales
+---
 
-Diseño moderno y atractivo, enfocado en experiencia de usuario y claridad visual.
+## 🧠 Lógica de negocio (concepto backend)
 
-Modo oscuro por defecto, con paleta inspirada en anime.
+Aunque la implementación actual está realizada en **JavaScript del lado del cliente**, la lógica representa un flujo típico de backend:
 
-Diseño totalmente responsivo, optimizado para:
+- Gestión de carrito y estado del pedido  
+- Manejo de cantidades y stock (simulado)  
+- Persistencia de datos (actualmente en LocalStorage)  
+- Preparación de datos para envío de orden  
+- Flujo de checkout estructurado  
 
-Escritorio
+> 🔁 En un entorno real, esta lógica estaría implementada en un **backend con Python y Flask**, utilizando:
+> - Base de datos para productos y pedidos  
+> - Endpoints para carrito y checkout  
+> - Autenticación de usuarios  
+> - Pasarela de pagos  
+> - Panel de administración  
 
-Tabletas
+La estructura del proyecto permite **migrar fácilmente esta lógica a un backend real** sin rehacer el frontend.
 
-Dispositivos móviles
+---
 
-Estructura semántica y limpia, fácil de mantener y ampliar.
+## 🛠️ Tecnologías utilizadas
 
-Carrito funcional, con:
+### Frontend
 
-Agregar productos
+- **HTML5**  
+  Estructura semántica y accesible, optimizada para SEO básico.
 
-Incrementar/disminuir cantidades
+- **CSS3**  
+  Diseño responsivo, variables CSS para modo oscuro y una estética moderna y consistente.
 
-Eliminar productos
+- **JavaScript (ES6)**  
+  Implementación de:
+  - Lógica del carrito  
+  - Renderizado dinámico de productos  
+  - Persistencia con LocalStorage  
+  - Modal de checkout  
+  - FAQ interactivo  
+  - Formulario funcional  
 
-Total en tiempo real
+---
 
-Persistencia en LocalStorage
+## 🌐 Enlace a la demostración
 
-Checkout simulado, con resumen de pedido y opción de enviar por WhatsApp.
-
-Secciones bien definidas:
-
-Hero principal con CTA
-
-Productos dinámicos
-
-Preguntas frecuentes (FAQ)
-
-Opiniones de clientes
-
-Formulario de contacto funcional
-
-Interactividad con JavaScript para manejo de carrito, modal de checkout y toggles de FAQ.
-
-Preparada para integrar imágenes reales de productos, con espacio para categorías, series y banners promocionales.
-
-🛠️ Tecnologías utilizadas
-
-HTML5: estructura semántica y accesible, optimizada para SEO.
-
-CSS3: diseño responsive, variables CSS para paleta oscura y estilo moderno.
-
-JavaScript (ES6): lógica de carrito, renderizado dinámico de productos, persistencia en LocalStorage, modal de checkout, FAQ interactivo y formulario funcional.
-
-🌐 Enlace a la demostración
-
-👉 Despliega el proyecto en GitHub Pages:
+👉 **Demo en GitHub Pages:**  
 https://benja-menis.github.io/tienda.online.anime/
 
-📌 Nota final
+---
 
-Este proyecto forma parte de un portfolio profesional y fue desarrollado como plantilla escalable de tienda online frontend, ideal para demostraciones, proyectos educativos o como base para un e-commerce completo.
-El diseño y la estructura permiten futuras ampliaciones, integración de más productos, categorías, filtros y animaciones, manteniendo la experiencia de usuario como prioridad.
+## 📌 Nota importante
+
+⚠️ **Este proyecto es una página de muestra y no corresponde a una tienda real.**  
+
+No se realizan ventas reales ni cobros.  
+El checkout, el carrito y la confirmación de pedidos son **simulaciones con fines educativos y de portfolio**.
+
+GitHub Pages no permite ejecutar backend con Python y Flask, por lo que la lógica fue implementada en JavaScript, manteniendo una **mentalidad de arquitectura backend real**.
+
+---
+
+## 📁 Uso del proyecto
+
+Este proyecto puede utilizarse como:
+
+- Demo de e-commerce frontend  
+- Ejemplo de lógica de carrito y checkout  
+- Plantilla base para tienda online real  
+- Proyecto educativo  
+- Parte de un portfolio profesional  
+- Base para:
+  - Integración con backend en Flask  
+  - Base de datos  
+  - Autenticación de usuarios  
+  - Pasarelas de pago  
+  - Panel de administración  
+
+---
+
+## 👨‍💻 Autor
+
+Proyecto desarrollado como parte de un **portfolio profesional**, con foco en:
+
+- Experiencia de usuario (UX)  
+- Diseño de interfaces (UI)  
+- Lógica de negocio aplicada al e-commerce  
+- JavaScript moderno (ES6)  
+- Arquitectura escalable orientada a backend  
+
+---
+
+🌸 **Anime Queens Store**  
+*E-commerce demo con lógica real y mentalidad full stack*
