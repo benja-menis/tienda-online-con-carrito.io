@@ -111,7 +111,7 @@ La estructura del proyecto permite **migrar fácilmente esta lógica a un backen
 ## 🌐 Enlace a la demostración
 
 👉 **Demo en GitHub Pages:**  
-https://benja-menis.github.io/tienda.online.anime/
+https://benja-menis.github.io/tienda-online-con-carrito.io/
 
 ---
 
