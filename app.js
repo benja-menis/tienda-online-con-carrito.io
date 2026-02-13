@@ -35,12 +35,12 @@
     { id: 12, name: "Ichika Nakano",    series: "The Quintessential Quintuplets",                            price: 260, image: "images/ichika-nakano.png",               category: "figure" },
     { id: 13, name: "Suma",             series: "Demon Slayer",                                              price: 250, image: "images/suma.png",                        category: "figure" },
     { id: 14, name: "Rio Futaba",       series: "Rascal Does Not Dream of Bunny Girl Senpai",               price: 245, image: "images/rio-futaba.png",                  category: "figure" },
-    { id: 15, name: "Kaede Azusagawa",  series: "Rascal Does Not Dream of Bunny Girl Senpai",               price: 245, image: "images/kaede-azusagawa.png",             category: "figure" },
+    { id: 15, name: "Chizuru Mizuhara", series: "Rent-A-Girlfriend",                                        price: 245, image: "images/kaede-azusagawa.png",             category: "figure" },
     { id: 16, name: "Alya Kujou",       series: "Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san",   price: 260, image: "images/alya-kujou.png",                  category: "figure" },
-    { id: 17, name: "Yuki Suou",        series: "Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san",   price: 260, image: "images/makio.png",                       category: "figure" },
+    { id: 17, name: "Makio",            series: "Demon Slayer",                                              price: 260, image: "images/makio.png",                       category: "figure" },
     { id: 18, name: "Shinobu Kocho",    series: "Demon Slayer",                                              price: 280, image: "images/shinobu-kocho.png",               category: "figure" },
     { id: 19, name: "Mitsuri Kanroji",  series: "Demon Slayer",                                              price: 290, image: "images/mitsuri-kanroji.png",             category: "figure" },
-    { id: 20, name: "Tamayo",           series: "Demon Slayer",                                              price: 275, image: "images/tamayo.png",                      category: "figure" },
+    { id: 20, name: "Hinatsuru",        series: "Demon Slayer",                                              price: 275, image: "images/tamayo.png",                      category: "figure" },
   ]);
 
   /* ═══════════════════════════════════════════════════════════════
