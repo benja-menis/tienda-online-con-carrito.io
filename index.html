@@ -3,108 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌸 Anime Queens Store 🌸</title>
-  <style>
-    /* =================== RESET =================== */
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif; }
-    body { background:#121212; color:#eee; line-height:1.6; min-height:100vh; }
-    a { text-decoration:none; color:inherit; }
-
-    /* =================== HEADER =================== */
-    header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#1f1f1f; border-bottom:2px solid #333; position:sticky; top:0; z-index:1000; }
-    header h1 { font-size:2rem; color:#ff79c6; }
-    .cart-icon { cursor:pointer; font-size:1.5rem; position:relative; }
-    .cart-icon span { position:absolute; top:-10px; right:-10px; background:#ff79c6; color:#121212; font-weight:bold; padding:2px 6px; border-radius:50%; }
-
-    /* =================== HERO =================== */
-    .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:5rem 2rem; background:#1a1a1a url('images/hero.jpg') no-repeat center/cover; }
-    .hero h2 { font-size:3rem; color:#ff79c6; margin-bottom:1rem; }
-    .hero p { font-size:1.2rem; color:#ccc; max-width:700px; margin-bottom:2rem; }
-    .hero button { padding:0.8rem 2rem; border:none; border-radius:8px; background:#50fa7b; color:#121212; cursor:pointer; font-size:1rem; }
-    .hero button:hover { background:#8cff9a; }
-
-    /* =================== PRODUCTOS =================== */
-    .products-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; padding:2rem; }
-    .product-card { background:#1f1f1f; padding:1rem; border-radius:10px; text-align:center; transition: transform 0.2s ease; }
-    .product-card:hover { transform:scale(1.05); }
-    .product-card img { width:100%; height:200px; object-fit:cover; border-radius:10px; }
-    .product-card h3 { margin:1rem 0 0.5rem 0; }
-    .product-card p { margin-bottom:0.5rem; font-weight:bold; color:#50fa7b; }
-    .product-card button { padding:0.5rem 1rem; border:none; background:#ff79c6; color:#121212; border-radius:5px; cursor:pointer; }
-    .product-card button:hover { background:#ff92d0; }
-
-    /* =================== CARRITO =================== */
-    .cart-sidebar { position:fixed; right:-400px; top:0; width:400px; height:100%; background:#1f1f1f; box-shadow:-4px 0 10px rgba(0,0,0,0.5); padding:1rem; transition:right 0.3s ease; z-index:100; overflow-y:auto; }
-    .cart-sidebar.active { right:0; }
-    .cart-sidebar h2 { color:#ff79c6; margin-bottom:1rem; }
-    .cart-item { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; }
-    .cart-item img { width:60px; height:60px; object-fit:cover; border-radius:5px; }
-    .cart-item-details { flex:1; margin-left:1rem; }
-    .cart-item-details h4 { margin-bottom:0.2rem; }
-    .cart-item-details p { font-size:0.9rem; color:#50fa7b; }
-    .cart-item button { background:none; border:none; color:#ff5555; cursor:pointer; font-size:1.2rem; }
-
-    .cart-footer { border-top:2px solid #333; padding-top:1rem; }
-    .cart-footer button { margin-top:0.5rem; width:100%; padding:0.5rem; border:none; border-radius:5px; cursor:pointer; }
-    #checkout-btn { background:#50fa7b; color:#121212; }
-    #clear-cart-btn { background:#ff5555; color:#fff; margin-top:0.5rem; }
-
-    /* =================== MODAL =================== */
-    .modal { display:none; position:fixed; z-index:200; left:0; top:0; width:100%; height:100%; overflow:auto; background:rgba(0,0,0,0.7); }
-    .modal-content { background:#1f1f1f; margin:10% auto; padding:2rem; border-radius:10px; width:90%; max-width:600px; position:relative; }
-    .close { position:absolute; top:1rem; right:1rem; font-size:2rem; cursor:pointer; color:#ff79c6; }
-
-    /* =================== FAQ =================== */
-    .faq { padding:3rem 2rem; }
-    .faq h2 { color:#ff79c6; margin-bottom:2rem; text-align:center; }
-    .faq-item { margin-bottom:1rem; }
-    .faq-item button { width:100%; text-align:left; padding:1rem; border:none; background:#2a2a2a; color:#eee; cursor:pointer; border-radius:5px; font-size:1rem; }
-    .faq-item button:after { content:'▼'; float:right; }
-    .faq-item button.active:after { content:'▲'; }
-    .faq-item .content { display:none; padding:1rem; background:#1f1f1f; border-radius:5px; margin-top:0.5rem; }
-
-    /* =================== FEEDBACKS =================== */
-    .feedbacks { background:#1a1a1a; padding:3rem 2rem; }
-    .feedbacks h2 { text-align:center; color:#ff79c6; margin-bottom:2rem; }
-    .feedback-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
-    .feedback-card { background:#2a2a2a; padding:1rem; border-radius:10px; }
-    .feedback-card p { margin-bottom:0.5rem; }
-    .feedback-card span { color:#50fa7b; font-weight:bold; }
-
-    /* =================== FORMULARIO =================== */
-    .contact { padding:3rem 2rem; }
-    .contact h2 { color:#ff79c6; margin-bottom:2rem; text-align:center; }
-    .contact form { display:grid; gap:1rem; max-width:600px; margin:0 auto; }
-    .contact input, .contact textarea { padding:0.8rem; border:none; border-radius:5px; }
-    .contact button { padding:0.8rem; border:none; border-radius:5px; background:#50fa7b; color:#121212; cursor:pointer; }
-    .contact button:hover { background:#8cff9a; }
-
-    /* =================== RESPONSIVE =================== */
-    @media (max-width:768px){ .cart-sidebar{ width:100%; } }
-  </style>
+  <meta name="description" content="Anime Queens Store — Figuras, posters y merch de tus personajes femeninos de anime favoritos.">
+  <title>Anime Queens Store</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- HEADER -->
+
+  <!-- Header -->
   <header>
-    <h1>🌸 Anime Queens Store 🌸</h1>
-    <div class="cart-icon" onclick="openCart()">🛍️ <span id="cart-count">0</span></div>
+    <h1>Anime Queens Store</h1>
+    <div class="cart-icon" id="cart-icon" role="button" aria-label="Abrir carrito">
+      🛍️ <span id="cart-count">0</span>
+    </div>
   </header>
 
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="hero">
-    <h2>¡Bienvenido a la tienda de tus heroinas favoritas!</h2>
-    <p>Explora figuras, posters, camisetas y más de personajes femeninos icónicos de anime. Agrega al carrito y disfruta la experiencia anime completa.</p>
-    <button onclick="document.getElementById('products-container').scrollIntoView({behavior:'smooth'})">Explorar Productos</button>
+    <h2>Bienvenido a la tienda de tus heroinas favoritas</h2>
+    <p>Explora figuras, posters, camisetas y mas de personajes femeninos iconicos de anime. Agrega al carrito y disfruta la experiencia anime completa.</p>
+    <button class="btn" id="hero-explore-btn">Explorar Productos</button>
   </section>
 
-  <!-- PRODUCTOS -->
+  <!-- Product Catalog -->
   <section class="products-container" id="products-container">
-    <!-- Productos dinámicos con JS -->
+    <!-- Rendered by app.js -->
   </section>
 
-  <!-- CARRITO SIDEBAR -->
+  <!-- Cart Overlay -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+
+  <!-- Cart Sidebar -->
   <aside class="cart-sidebar" id="cart-sidebar">
-    <h2>Carrito</h2>
+    <div class="cart-header">
+      <h2>Carrito</h2>
+      <button class="cart-close" aria-label="Cerrar carrito">&times;</button>
+    </div>
     <div id="cart-items"></div>
     <div class="cart-footer">
       <p>Total: $<span id="cart-total">0</span></p>
@@ -113,14 +46,14 @@
     </div>
   </aside>
 
-  <!-- MODAL CHECKOUT -->
+  <!-- Checkout Modal -->
   <div class="modal" id="checkout-modal">
     <div class="modal-content">
-      <span class="close" id="close-modal">&times;</span>
+      <button class="close" aria-label="Cerrar">&times;</button>
       <h2>Resumen del pedido</h2>
       <div id="checkout-summary"></div>
       <p>Total: $<span id="checkout-total">0</span></p>
-      <button id="confirm-order-btn">Enviar pedido por WhatsApp</button>
+      <button id="confirm-order-btn">Confirmar pedido</button>
     </div>
   </div>
 
@@ -129,32 +62,44 @@
     <h2>Preguntas frecuentes</h2>
     <div class="faq-item">
       <button>¿Los productos son oficiales?</button>
-      <div class="content"><p>Sí, todos los productos son de calidad premium y licenciados.</p></div>
+      <div class="content"><p>Si, todos los productos son de calidad premium y licenciados.</p></div>
     </div>
     <div class="faq-item">
-      <button>¿Hacen envíos internacionales?</button>
-      <div class="content"><p>Sí, enviamos a todo el mundo. Los costos varían según la región.</p></div>
+      <button>¿Hacen envios internacionales?</button>
+      <div class="content"><p>Si, enviamos a todo el mundo. Los costos varian segun la region.</p></div>
     </div>
     <div class="faq-item">
       <button>¿Se puede devolver un producto?</button>
-      <div class="content"><p>Si el producto llega dañado, puedes solicitar una devolución dentro de los 7 días.</p></div>
+      <div class="content"><p>Si el producto llega dañado, puedes solicitar una devolucion dentro de los 7 dias.</p></div>
     </div>
   </section>
 
-  <!-- FEEDBACKS -->
+  <!-- Customer Reviews -->
   <section class="feedbacks">
     <h2>Opiniones de clientes</h2>
     <div class="feedback-list">
-      <div class="feedback-card"><p>"Amo mi figura de Mai Sakurajima 🖤"</p><span>- Ana</span></div>
-      <div class="feedback-card"><p>"El envío fue rápido y seguro, 100% recomendado!"</p><span>- Carlos</span></div>
-      <div class="feedback-card"><p>"Los posters de Rem son hermosos 😍"</p><span>- Laura</span></div>
-      <div class="feedback-card"><p>"Mi hija está feliz con Asuna Yuuki"</p><span>- Miguel</span></div>
+      <div class="feedback-card">
+        <p>"Amo mi figura de Mai Sakurajima"</p>
+        <span>— Ana</span>
+      </div>
+      <div class="feedback-card">
+        <p>"El envio fue rapido y seguro, 100% recomendado!"</p>
+        <span>— Carlos</span>
+      </div>
+      <div class="feedback-card">
+        <p>"Las figuras de las Quintillizas son hermosas"</p>
+        <span>— Laura</span>
+      </div>
+      <div class="feedback-card">
+        <p>"Mi hija esta feliz con Asuna Yuuki"</p>
+        <span>— Miguel</span>
+      </div>
     </div>
   </section>
 
-  <!-- FORMULARIO -->
+  <!-- Contact Form -->
   <section class="contact">
-    <h2>Contáctanos</h2>
+    <h2>Contactanos</h2>
     <form id="contact-form">
       <input type="text" name="name" placeholder="Tu nombre" required>
       <input type="email" name="email" placeholder="Tu correo" required>
@@ -163,151 +108,11 @@
     </form>
   </section>
 
-  <!-- =================== JAVASCRIPT =================== -->
-  <script>
-const products = [
-  {id:1,name:"Mai Sakurajima – Bunny Girl Senpai",price:250,image:"images/mai-sakurajima.png"},
-  {id:2,name:"Rem – Re:Zero",price:280,image:"images/rem-rezero.jpg"},
-  {id:3,name:"Asuna Yuuki – Sword Art Online",price:270,image:"images/asuna-sword-art-online.png"},
-  {id:4,name:"Mikasa Ackerman – Attack on Titan",price:300,image:"images/mikasa-attack-on-titan.png"},
-  {id:5,name:"Suou Yuki – Dereru Tonari no Alya-san",price:260,image:"images/marin-my-dress-up-darling.png"},
-  {id:6,name:"Zero Two – Darling in the FranXX",price:290,image:"images/zero-two-darling-in-the-franxx.png"},
-  {id:7,name:"Megumin – KonoSuba",price:220,image:"images/megumin-konosuba.png"},
-  {id:8,name:"Alisa Mikhailovna – Dereru Tonari no Alya-san",price:300,image:"images/saber-fate.png"},
-  {id:9,name:"Emilia – Re:Zero",price:275,image:"images/emilia-rezero.png"},
-  {id:10,name:"Nezuko Kamado – Demon Slayer",price:280,image:"images/nezuko-demon-slayer.png"},
-  {id:11,name:"Nami – One Piece",price:260,image:"images/nami-one-piece.png"},
-  {id:12,name:"Boa Hancock – One Piece",price:295,image:"images/boa-hancock-one-piece.png"},
-  {id:13,name:"Nico Robin – One Piece",price:270,image:"images/nico-robin-one-piece.png"},
-  {id:14,name:"Erza Scarlet – Fairy Tail",price:285,image:"images/erza-fairy-tail.png"},
-  {id:15,name:"Rias Gremory – High School DxD",price:275,image:"images/rias-high-school-dxd.png"},
-  {id:16,name:"Yor Forger – Spy x Family",price:260,image:"images/yor-spy-x-family.png"},
-  {id:17,name:"Makima – Chainsaw Man",price:300,image:"images/makima-chainsaw-man.png"},
-  {id:18,name:"Power – Chainsaw Man",price:270,image:"images/power-chainsaw-man.png"},
-  {id:19,name:"Kaguya Shinomiya – Love is War",price:250,image:"images/kaguya-love-is-war.png"},
-  {id:20,name:"Ai Hayasaka – Love is War",price:240,image:"images/ai-hayasaka-love-is-war.png"},
-  {id:21,name:"Ichika Nakano – Gotoubun no Hanayome",price:260,image:"images/ichika-nakano.png"},
-  {id:22,name:"Nino Nakano – Gotoubun no Hanayome",price:265,image:"images/nino-nakano.png"},
-  {id:23,name:"Miku Nakano – Gotoubun no Hanayome",price:270,image:"images/miku-nakano.png"},
-  {id:24,name:"Yotsuba Nakano – Gotoubun no Hanayome",price:275,image:"images/yotsuba-nakano.png"},
-  {id:25,name:"Itsuki Nakano – Gotoubun no Hanayome",price:280,image:"images/itsuki-nakano.png"},
-  {id:26,name:"Suma – Demon Slayer",price:250,image:"images/suma.png"},
-  {id:27,name:"Rio Futaba – Bunny Girl Senpai",price:245,image:"images/rio-futaba.png"},
-  {id:28,name:"Kaede Azusagawa – Bunny Girl Senpai",price:245,image:"images/kaede-azusagawa.png"},
-  {id:29,name:"Shoko Makinohara – Bunny Girl Senpai",price:250,image:"images/shoko-makinohara.png"},
-  {id:30,name:"Alya Kujou – Dereru Tonari no Alya-san",price:260,image:"images/alya-kujou.png"},
-  {id:31,name:"Yuki Suou – Dereru Tonari no Alya-san",price:260,image:"images/makio.png"},
-  {id:32,name:"Shinobu Kocho – Demon Slayer",price:280,image:"images/shinobu-kocho.png"},
-  {id:33,name:"Mitsuri Kanroji – Demon Slayer",price:290,image:"images/mitsuri-kanroji.png"},
-  {id:34,name:"Shikimori, Miyako – Kawaii dake ja Nai Shikimori-san",price:285,image:"images/kanao-tsuyuri.png"},
-  {id:35,name:"Tamayo – Demon Slayer",price:275,image:"images/tamayo.png"},
-  {id:36,name:"Kaoruko Waguri – Kaoru Hana wa Rin to Saku", price:260, image:"images/kaoruko-waguri.png"},
-  {id:37,name:"Sasha Braus – Attack on Titan", price:250, image:"images/chitose-shirakawa.png"},
-  {id:38,name:"Mahiru Shiina – Otonari no Tenshi-sama", price:270, image:"images/mahiru-shiina.png"},
-  {id:39,name:"Fubuki – One Punch Man", price:280, image:"images/fubuki-one-punch-man.png"},
-  {id:40,name:"Tatsumaki – One Punch Man", price:300, image:"images/tatsumaki-one-punch-man.png"},
-  {id:41,name:"Daki – Demon Slayer", price:285, image:"images/daki.png"},
-  {id:42,name:"Chitose Shirakawa – Otonari no Tenshi-sama", price:250, image:"images/sasha-breus.png"},
-  {id:43,name:"Kohaku – Dr. Stone", price:275, image:"images/aoi-kanzaki.png"}
-];
-    // ========================== ESTADO DEL CARRITO ==========================
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  <!-- Footer -->
+  <footer>
+    <p>Anime Queens Store &copy; 2025 — Todos los derechos reservados.</p>
+  </footer>
 
-    // ========================== ELEMENTOS DOM ==========================
-    const productsContainer = document.getElementById('products-container');
-    const cartSidebar = document.getElementById('cart-sidebar');
-    const cartItems = document.getElementById('cart-items');
-    const cartTotal = document.getElementById('cart-total');
-    const cartCount = document.getElementById('cart-count');
-    const checkoutBtn = document.getElementById('checkout-btn');
-    const clearCartBtn = document.getElementById('clear-cart-btn');
-
-    const checkoutModal = document.getElementById('checkout-modal');
-    const closeModal = document.getElementById('close-modal');
-    const checkoutSummary = document.getElementById('checkout-summary');
-    const checkoutTotal = document.getElementById('checkout-total');
-    const confirmOrderBtn = document.getElementById('confirm-order-btn');
-
-    // ========================== RENDERIZAR PRODUCTOS ==========================
-    function renderProducts(){
-      productsContainer.innerHTML = '';
-      products.forEach(product=>{
-        const card = document.createElement('div');
-        card.classList.add('product-card');
-        card.innerHTML = `<img src="${product.image}" alt="${product.name}"><h3>${product.name}</h3><p>$${product.price}</p><button onclick="addToCart(${product.id})">Agregar al carrito</button>`;
-        productsContainer.appendChild(card);
-      });
-    }
-
-    // ========================== CARRITO ==========================
-    function saveCart(){ localStorage.setItem('cart',JSON.stringify(cart)); }
-
-    function renderCart(){
-      cartItems.innerHTML='';
-      let total=0;
-      cart.forEach(item=>{
-        const subtotal = item.price*item.quantity;
-        total += subtotal;
-        const div = document.createElement('div');
-        div.classList.add('cart-item');
-        div.innerHTML=`<img src="${item.image}" alt="${item.name}"><div class="cart-item-details"><h4>${item.name}</h4><p>$${item.price} x ${item.quantity} = $${subtotal}</p></div><div><button onclick="increaseQuantity(${item.id})">+</button><button onclick="decreaseQuantity(${item.id})">-</button><button onclick="removeItem(${item.id})">❌</button></div>`;
-        cartItems.appendChild(div);
-      });
-      cartTotal.innerText=total;
-      cartCount.innerText=cart.reduce((acc,item)=>acc+item.quantity,0);
-    }
-
-    function addToCart(id){
-      const product=products.find(p=>p.id===id);
-      const exist=cart.find(item=>item.id===id);
-      if(exist){ exist.quantity++; } else { cart.push({...product,quantity:1}); }
-      saveCart(); renderCart(); openCart();
-    }
-
-    function increaseQuantity(id){ const item=cart.find(p=>p.id===id); item.quantity++; saveCart(); renderCart(); }
-    function decreaseQuantity(id){ const item=cart.find(p=>p.id===id); item.quantity--; if(item.quantity===0){ cart=cart.filter(p=>p.id!==id); } saveCart(); renderCart(); }
-    function removeItem(id){ cart=cart.filter(p=>p.id!==id); saveCart(); renderCart(); }
-
-    function openCart(){ cartSidebar.classList.add('active'); }
-    checkoutBtn.addEventListener('click',()=>{
-      checkoutSummary.innerHTML='';
-      cart.forEach(item=>{
-        const div=document.createElement('div');
-        div.innerHTML=`<p>${item.name} x ${item.quantity} = $${item.price*item.quantity}</p>`;
-        checkoutSummary.appendChild(div);
-      });
-      checkoutTotal.innerText=cart.reduce((acc,item)=>acc+item.price*item.quantity,0);
-      checkoutModal.style.display='block';
-    });
-    closeModal.addEventListener('click',()=>{ checkoutModal.style.display='none'; });
-    confirmOrderBtn.addEventListener('click',()=>{
-      alert('Pedido enviado! Gracias por comprar.');
-      cart=[]; saveCart(); renderCart(); checkoutModal.style.display='none';
-    });
-    clearCartBtn.addEventListener('click',()=>{ cart=[]; saveCart(); renderCart(); });
-
-    renderProducts(); renderCart();
-
-    window.onclick=function(event){ if(event.target==checkoutModal){ checkoutModal.style.display="none"; } }
-
-    // ========================== FAQ TOGGLE ==========================
-    const faqButtons = document.querySelectorAll('.faq-item button');
-    faqButtons.forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        btn.classList.toggle('active');
-        const content=btn.nextElementSibling;
-        content.style.display=content.style.display==='block'?'none':'block';
-      });
-    });
-
-    // ========================== FORMULARIO FUNCIONAL ==========================
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit',(e)=>{
-      e.preventDefault();
-      const formData=new FormData(contactForm);
-      alert(`Mensaje enviado!\nNombre: ${formData.get('name')}\nEmail: ${formData.get('email')}\nMensaje: ${formData.get('message')}`);
-      contactForm.reset();
-    });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
